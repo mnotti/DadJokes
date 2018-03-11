@@ -1,3 +1,32 @@
 #!/bin/bash
+RED='\033[0;31m'
+GREEN='\033[0:32m'
+BLUE='\033[0:34m'
+PURPLE='\033[0:35m'
+CYAN='\033[0:36m'
+LRED='\033[91m'
+LGREEN='\033[92m'
+YELLOW='\033[33m'
+LBLUE='\033[94m'
+LPURPLE='\033[95m'
+LCYAN='\033[96m'
+NC='\033[0m' # No Color
+#11 colors (other than NC)
 
-curl https://icanhazdadjoke.com/
+Colors[0]=$RED
+Colors[1]=$GREEN
+Colors[2]=$BLUE
+Colors[3]=$PURPLE
+Colors[4]=$CYAN
+Colors[5]=$LRED
+Colors[6]=$LGREEN
+Colors[7]=$YELLOW
+Colors[8]=$LBLUE
+Colors[9]=$LPURPLE
+Colors[10]=$LCYAN
+
+R=$((RANDOM % 10))
+COLOR=${Colors[$R]}
+
+JOKE="$(curl -s https://icanhazdadjoke.com/)"
+printf "${COLOR}${JOKE}${NC}\n"
